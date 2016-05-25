@@ -4,6 +4,8 @@ gem 'rails', '4.2.6'
 gem 'pg'
 gem 'active_model_serializers'
 gem 'bcrypt'
+gem 'carrierwave'
+gem 'kaminari'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

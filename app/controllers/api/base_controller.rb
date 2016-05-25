@@ -12,20 +12,24 @@ class Api::BaseController < ::ApplicationController
 
   rescue_from ActiveRecord::RecordNotFound do |e|
     render_error({
-        'error': {
-            'message': 'User not found'
+        "error": {
+            "message": "Entity not found"
         }
     }, 404)
   end
 
   rescue_from ActiveRecord::RecordInvalid do |e|
-    render_error(e.record.errors, 422)
+    render_error({
+        "error": {
+            "message": e.record.errors
+        }
+    }, 422)
   end
 
   rescue_from UnauthorizedError do |e|
     render_error({
-        'error': {
-            'message': 'User not authorized'
+        "error": {
+            "message": "User not authorized"
         }
     }, 401)
   end
@@ -34,6 +38,10 @@ class Api::BaseController < ::ApplicationController
   def authorize_user
     @current_session = authenticate_with_http_token do |token, options|
       Session.auth_with_token token
+    end
+
+    if @current_session
+      @user = User.find @current_session.user_id
     end
 
     raise UnauthorizedError.new unless @current_session
