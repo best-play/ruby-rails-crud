@@ -3,6 +3,10 @@
 Gemfile.lock
 .byebug_history
 README.md
+public/assets
+public/tmp
+public/uploads
+
 
 # See https://help.github.com/articles/ignoring-files for more about ignoring files.
 #
