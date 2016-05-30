@@ -22,3 +22,9 @@ group :development do
   gem 'web-console', '~> 2.0'
 end
 
+group :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'shoulda-matchers'
+end
