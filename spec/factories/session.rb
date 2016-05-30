@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :session do
     token { SecureRandom.base64 20 }
-    user nil
+    user { create :user }
   end
 end
