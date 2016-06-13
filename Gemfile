@@ -6,6 +6,9 @@ gem 'active_model_serializers'
 gem 'bcrypt'
 gem 'carrierwave'
 gem 'kaminari'
+gem 'sidekiq'
+gem 'sinatra', :require => nil
+gem 'httparty'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
